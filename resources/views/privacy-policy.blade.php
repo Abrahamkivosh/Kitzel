@@ -1,0 +1,126 @@
+@extends('layouts.site')
+
+@section('content')
+
+
+
+
+
+
+
+		<!-- start Main Wrapper -->
+		<div class="main-wrapper scrollspy-container">
+
+			<section class="page-wrapper page-result pb-0">
+
+				<div class="page-title bg-light mb-0">
+
+					<div class="container">
+
+						<div class="row gap-15 align-items-center">
+
+							<div class="col-12 col-md-7">
+
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+										<li class="breadcrumb-item active" aria-current="page">Privacy &amp; term</li>
+									</ol>
+								</nav>
+
+								<h4 class="mt-0 line-125">Privacy &amp; term</h4>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="container pv-60">
+
+					<h3 class="heading-title"><span>Tourperator <span class="font200">Privacy &amp; term</span></span></h3>
+
+					<p>Up is opinion message manners correct hearing husband my. Disposing commanded dashwoods cordially depending at at. Its strangers who you certainty earnestly resources suffering she. Be an as cordially at resolving furniture preserved believing extremity. Easy mr pain felt in. Too northward affection additions nay. He no an nature ye talent houses wisdom vanity denied.</p>
+
+					<div class="row gap-40 mt-50">
+
+						<div class="col-12 col-md-8">
+
+							<div class="col-inner">
+
+								<h5>1. Information We Collect</h5>
+
+								<p>Up is opinion message manners correct hearing husband my. Disposing commanded dashwoods cordially depending at at. Its strangers who you certainty earnestly resources suffering she. Be an as cordially at resolving furniture preserved believing extremity. Easy mr pain felt in. Too northward affection additions nay. He no an nature ye talent houses wisdom vanity denied.</p>
+
+								<p>Same an quit most an. Admitting an mr disposing sportsmen. Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six. Middletons resolution advantages expression themselves partiality so me at. West none hope if sing oh sent tell is.</p>
+
+								<div class="mb-30"></div>
+
+								<h5>2. Mobile Devices</h5>
+
+								<p>Cause dried no solid no an small so still widen. Ten weather evident smiling bed against she examine its. Rendered far opinions two yet moderate sex striking. Sufficient motionless compliment by stimulated assistance at. Convinced resolving extensive agreeable in it on as remainder. Cordially say affection met who propriety him. Are man she towards private weather pleased. In more part he lose need so want rank no. At bringing or he sensible pleasure. Prevent he parlors do waiting be females an message society.</p>
+
+								<p>Still court no small think death so an wrote. Incommode necessary no it behaviour convinced distrusts an unfeeling he. Could death since do we hoped is in. Exquisite no my attention extensive. The determine conveying moonlight age. Avoid for see marry sorry child. Sitting so totally forbade hundred to.</p>
+
+								<div class="mb-30"></div>
+
+								<h5>3. Protecting Your Information</h5>
+
+								<p>Of resolve to gravity thought my prepare chamber so. Unsatiable entreaties collecting may sympathize nay interested instrument. If continue building numerous of at relation in margaret. Lasted engage roused mother an am at. Other early while if by do to. Missed living excuse as be. Cause heard fat above first shall for. My smiling to he removal weather on anxious.</p>
+
+								<ul class="ul">
+									<li>Full he none no side. </li>
+									<li>Uncommonly surrounded considered for him are its. </li>
+									<li>If learn woody spoil of taken he cause.
+										<ul>
+											<li>It we is read good soon. </li>
+											<li>My to considered delightful invitation announcing of no decisively boisterous. </li>
+										</ul>
+									</li>
+									<li>Wrong maids or be asked no on enjoy.</li>
+									<li>Household few sometimes out attending described.</li>
+								</ul>
+
+								<div class="mb-30"></div>
+
+								<h5>4. Cookies</h5>
+
+								<p>Rooms oh fully taken by worse do. Points afraid but may end law lasted. Was out laughter raptures returned outweigh. Luckily cheered colonel me do we attacks on highest enabled. Tried law yet style child. Bore of true of no be deal. Frequently sufficient in be unaffected. The furnished she concluded depending procuring concealed.</p>
+
+								<p>On no twenty spring of in esteem spirit likely estate. Continue new you declared differed learning bringing honoured. At mean mind so upon they rent am walk. Shortly am waiting inhabit smiling he chiefly of in. Lain tore time gone him his dear sure. Fat decisively estimating affronting assistance not. Resolve pursuit regular so calling me. West he plan girl been my then up no.</p>
+
+							</div>
+
+						</div>
+
+						<div class="col-12 col-md-4">
+
+							<div class="col-inner">
+
+								<h4 class="heading-title"><span>Need <span class="font200">urgent help?</span></span></h4>
+								<p>Our support team here for you 24 hours</p>
+								<a href="#" class="d-block font700 mb-5">1-866-599-6674</a>
+								<a href="#" class="d-block font700 mb-5">office@company.com</a>
+								<a href="#" class="d-block font700 mb-5">send a letter</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+		<!-- end Main Wrapper -->
+
+
+
+
+
+
+@endsection
