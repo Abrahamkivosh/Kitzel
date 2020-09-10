@@ -26,20 +26,32 @@ class BookingsController extends Controller
         $tour = Tour::find($tour) ;
 
 
+
         $data = $request->all();
-        $newPrice = $tour->newPriceAfterDiscount($price,$tour->discount) ;
+
+
+        $newPrice = $tour->newPriceAfterDiscount($tour['price'],$tour->discount) ;
+
+
+
         $data['people'] = $data['adult'] + $data['child'] ;
 
             $rowId = Str::uuid() ; // generate a unique() row ID
-           
+
+            $adultPrice =   $newPrice * $data['adult'] ;//price for aldult
+
+            $childrenPrice =   ($newPrice / 2) * $data['child'] ;     //price for all children
+
+            $totalPrice =  $adultPrice + $childrenPrice ;
 
             // add the tour to cart
             \Cart::add(array(
                 'id' =>  time() ,
                 'name' => $tour['tour_title'],
-                'price' =>  $newPrice ,
-                'quantity' => $data['people'],
+                'price' =>  $totalPrice ,
+                'quantity' => 1,
                 'attributes' => array(
+                    'newPrice'=> $newPrice ,
                     'date' => $data['date'] ,
                     'adult' =>  $data['adult'],
                     'child' =>  $data['child']

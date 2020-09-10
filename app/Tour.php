@@ -28,7 +28,7 @@ class Tour extends Model
     {
         $remain = ((100 - $discount)/100) ;
         $new = $price * $remain;
-        return number_format($new,2);
+        return $new;
 
     }
 

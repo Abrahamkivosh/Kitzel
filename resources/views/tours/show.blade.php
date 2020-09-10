@@ -554,7 +554,7 @@
                                             <div class="col-inner">
                                                 <div class="form-group">
                                                     <label class="h6 font-sm">Choosen your tour date</label>
-                                                    <input type="text" name="date" id="tour_date" class="form-control form-readonly-control air-datepicker" placeholder="dd/mm/yyyy" data-min-view="days" data-view="days" data-date-format="dd mm yyyy" data-language="en" data-auto-close="true" readonly>
+                                                    <input type="text" name="date" required id="tour_date" class="form-control form-readonly-control air-datepicker" placeholder="dd/mm/yyyy" data-min-view="days" data-view="days" data-date-format="dd mm yyyy" data-language="en" data-auto-close="true" required readonly>
                                                 </div>
                                             </div>
                                         </div>

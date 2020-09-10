@@ -311,7 +311,7 @@
                                             <li><i class="elegent-icon-pin_alt text-warning"></i> {{ $order->associatedModel->tour_location }}</li>
                                             <li><strong>{{ $order->associatedModel->tour_duration }}</strong></li>
                                         </ul>
-                                        <span class="price">Price from <span class="h6 line-1 text-primary number">€ {{ number_format(    $order->associatedModel->price ,2,".",",")   }}</span></span>
+                                        <span class="price">Price from <span class="h6 line-1 text-primary number">€ {{ number_format(    $order->attributes->newPrice ,2,".",",")   }}</span></span>
                                     </div>
 
                                 </a>
@@ -322,9 +322,9 @@
                                 </h4>
 
                                 <ul class="border-top mt-20 pt-15">
-                                    <li class="clearfix">Adults {{ $order->attributes->adult ." * € ". number_format( $order->associatedModel->price ,2,".",',')  }} guests<span class="float-right"> {{ $order->attributes->adult  * $order->associatedModel->price }} </span></li>
+                                    <li class="clearfix">Adults {{ $order->attributes->adult ." * € ". number_format( $order->attributes->newPrice ,2,".",',')  }} guests<span class="float-right"> {{ $order->attributes->adult  * $order->attributes->newPrice }} </span></li>
                                     <li class="clearfix">Children {{ $order->attributes->child  ." * ".
-                                        number_format( $order->associatedModel->price  ,2,".",',')   }} <span class="float-right">{{ number_format( ($order->attributes->child  * $order->associatedModel->price) ,2,".",",")    }}</span></li>
+                                        number_format( ($order->attributes->newPrice /2)  ,2,".",',')   }} <span class="float-right">{{ number_format( ($order->attributes->child  * ($order->attributes->newPrice / 2)) ,2,".",",")    }}</span></li>
                                     <li class="clearfix">Other fees<span class="float-right text-success">Free</span></li>
                                     <li class="clearfix border-top font700 text-uppercase">
                                         <div class="border-top mt-1">
