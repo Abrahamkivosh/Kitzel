@@ -33,9 +33,15 @@ Route::group(['as' => 'admin.','prefix' => 'admin','namespace' =>'Admin','middle
 
     Route::resource('/tours1', 'CreateTourController');
 
+    Route::get('tours/{id}/images',"CreateTourController@createImages")->name("create.tour.images") ;
+    Route::post('tours/{id}/images',"CreateTourController@uploadImages")->name("store.tour.images") ;
+    Route::post('tours/images/delete',"CreateTourController@DeleteImages")->name("destroy.images") ;
+
+
 
 
 });
+Route::post('/tours/images/destroy', 'ImageController@destroyByName')->name('deleteTourImage');
 
 
 
@@ -68,6 +74,7 @@ Route::get('/users/orders','users\DashboardController@book');
 //Route::resource('admin/tours1', 'CreateTourController');
 
 Route::resource('tours', 'ToursController');
+
 
 //Route::resource('admin/tours1', 'ToursController');
 

@@ -24,6 +24,11 @@ class Tour extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
     public function newPriceAfterDiscount($price,$discount)
     {
         $remain = ((100 - $discount)/100) ;

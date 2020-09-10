@@ -9,18 +9,87 @@ use App\User;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Image as AppImage;
 use Image;
+use PhpParser\Node\Stmt\Function_;
 
 class CreateTourController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function createImages($id)
+    {
+        $tour = Tour::findOrFail($id) ;
+        return view('admin.tours1.createImages',compact('tour'));
+    
+    }
+    
+
+     public function  uploadImages(Request $request , $tour_id)
+
+     {
+ 
+         $this->validate($request, [
+ 
+                 'file' => 'required',
+                 'file.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:3048'
+ 
+         ]);
+
+         $tour = Tour::find($tour_id) ;
+         
+         if($request->hasfile('file'))
+          {
+ 
+           
+
+                $filenameWithExt = $request->file('file')->getClientOriginalName();
+
+                // Get just the filename
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // Get extension
+                $extension = $request->file('file')->getClientOriginalExtension();
+                // Create new filename
+                $filenameToStore = $filename . '_' . time() . '.' . $extension;
+    
+                // Uplaod image
+                $path = $request->file('file')->storeAs('public/uploads/tours/images', $filenameToStore);
+              
+            
+
+                 $tour->images()->create(
+                     ['image'=>  $filenameToStore ]
+                 );
+           
+             return response()->json(['success'=> $filenameToStore]);
+
+
+          }
+ 
+        //  return back()->with('success', 'Your images  uploaded successfully');
+     }
+
+     public function fileDestroy(Request $request)
+    {
+        $filename =  $request->get('filename');
+         $img =  AppImage::where('image',$filename)->first();
+            
+            if ($img->delete() ) {
+                return  response()->json(['success'=> "Removed "])  ;
+            } else {
+                return  response()->json(['success'=> "Error "])  ;
+            }
+            
+      
+        
+    }
+
+
+
+
+
     public function index()
     {
-        //
+        $tours = Tour::all();
+        return view('admin.tours1.index',compact('tours'));
     }
 
     /**

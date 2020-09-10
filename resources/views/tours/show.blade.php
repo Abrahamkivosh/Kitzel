@@ -95,7 +95,15 @@
 
 
 								<div id="detail-content-sticky-nav-01" class="detail-header mb-30">
-									<h3>{{$tours->tour_title}}</h3>
+                                    <h3>{{$tours->tour_title}}
+                                    <span class="pl-5" >
+                                        @auth
+                                            @if (auth()->user()->role == "admin")
+                                                <a href="{{ route('admin.create.tour.images',$tours->id) }}"  class="btn btn-primary"> <i class="fa fa-plus" aria-hidden="true"></i> Add Images</a>
+                                            @endif
+                                        @endauth
+                                    </span>
+                                </h3> 
 
 									<div class="d-flex flex-column flex-sm-row align-items-sm-center mb-20">
 										<div class="mr-15 font-lg">
