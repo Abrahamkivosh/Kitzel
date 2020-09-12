@@ -16,7 +16,7 @@ class CreateOrderTourTable extends Migration
         Schema::create('order_tour', function (Blueprint $table) {
             $table->id();
             $table->integer('order_id')->unsigned()->nullable();
-            $table->foreign('order_id')->references('id')
+            $table->foreign('order_id')->references('id')->on('users')
                   ->on('orders')->onUpdate('cascade')->onDelete('set null');
 
 

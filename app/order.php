@@ -17,6 +17,7 @@ class order extends Model
         return $this->belongsTo('App\User');
     }
 
+
     public function tours()
     {
         return $this->belongsToMany('App\Tour')->withPivot('quantity');

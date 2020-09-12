@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Tour;
 
+use App\order;
+
+use App\OrderTour;
+
 use Stripe;
 
 use Cartalyst\Stripe\Exception\CardErrorException;
@@ -38,7 +42,7 @@ class BookingsController extends Controller
 
             $rowId = Str::uuid() ; // generate a unique() row ID
 
-            $adultPrice =   $newPrice * $data['adult'] ;//price for aldult
+            $adultPrice =   $newPrice * $data['adult'] ;//price for adult
 
             $childrenPrice =   ($newPrice / 2) * $data['child'] ;     //price for all children
 
@@ -49,7 +53,8 @@ class BookingsController extends Controller
                 'id' =>  time() ,
                 'name' => $tour['tour_title'],
                 'price' =>  $totalPrice ,
-                'quantity' => 1,
+                //'quantity' => 1,
+                'quantity' => $data['people'],
                 'attributes' => array(
                     'newPrice'=> $newPrice ,
                     'date' => $data['date'] ,
@@ -92,6 +97,7 @@ class BookingsController extends Controller
 
     public function store(Request $request)
     {
+
         try {
                 $charge = Stripe::charges()->create([
                     'amount' => \Cart::getTotal() /128,
@@ -105,6 +111,42 @@ class BookingsController extends Controller
                             //'quantity' =>Cart::instance('default')->count(),
                     ],
                 ]);
+
+
+                //insert into orders table
+
+                $order = order::create([
+                    'user_id' => auth()->user() ? auth()->user()->id : null,
+                    'email' => $request->email,
+                    'name' => $request->name,
+                    'phone_number' => $request->phone_number,
+                    'address' => $request->address,
+                    'zip_code' => $request->zip_code,
+                    'city' => $request->city,
+                    'state' => $request->state,
+                    'country' => $request->tour_title,
+                    'discount' => $request->discount,
+                    'price'=> \Cart::getTotal() /128,
+                    'error' => null,
+
+                ]);
+
+                //insert into orders table
+
+
+                foreach (\Cart::getContent() as $tour) {
+                    OrderTour::create([
+                        'order_id' => $order->id,
+                        'tour_id' => $tour ['id'],
+                        'name' => $tour ['name'],
+
+
+                    ]);
+
+                }
+
+
+
 
 
                 \Cart::clear();

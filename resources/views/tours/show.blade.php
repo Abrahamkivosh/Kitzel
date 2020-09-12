@@ -103,7 +103,7 @@
                                             @endif
                                         @endauth
                                     </span>
-                                </h3> 
+                                </h3>
 
 									<div class="d-flex flex-column flex-sm-row align-items-sm-center mb-20">
 										<div class="mr-15 font-lg">
