@@ -1,13 +1,6 @@
 @extends('layouts.site')
 
 @section('content'))
-
-
-
-
-
-
-
 		<!-- start Main Wrapper -->
 		<div class="main-wrapper scrollspy-container">
 
@@ -123,45 +116,25 @@
 
 										<div class="slider gallery-slideshow">
 											<div><div class="image"><img src="/storage/uploads/tours/{{$tours->featured}}" alt="{{ $tours->tour_title }}" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/02.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/03.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/04.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/05.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/06.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/07.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/08.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/09.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/10.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/11.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/12.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/13.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/14.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/15.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/16.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/17.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/18.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/19.jpg" alt="Images" /></div></div>
+
+
+                                            @forelse ($tours->images as $image)
+                                        <div><div class="image"><img src="/storage/uploads/tours/images/{{ $image->image }}" alt="{{ $tours->tour_title }}" /></div></div>
+                                            @empty
+                                            <div><div class="image"><img src="/images/image-gallery/thumb/02.jpg" alt="Images" /></div></div>
+                                            @endforelse
+
+
 										</div>
 										<div class="slider gallery-nav">
 											<div><div class="image"><img src="/storage/uploads/tours/{{$tours->featured}}" alt="{{ $tours->tour_title }}" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/02.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/03.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/04.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/05.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/06.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/07.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/08.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/09.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/10.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/11.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/12.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/13.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/14.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/15.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/16.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/17.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/18.jpg" alt="Images" /></div></div>
-											<div><div class="image"><img src="/images/image-gallery/thumb/19.jpg" alt="Images" /></div></div>
+
+                                            @forelse ($tours->images as $image)
+                                            <div><div class="image"><img src="/storage/uploads/tours/images/{{ $image->image }}" alt="{{ $tours->tour_title }}" /></div></div>
+                                                @empty
+                                                <div><div class="image"><img src="/images/image-gallery/thumb/02.jpg" alt="Images" /></div></div>
+                                                @endforelse
+
 										</div>
 
 									</div>
